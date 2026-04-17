@@ -2,30 +2,28 @@ let scoreA = 0
 let scoreB = 0
 
 function addPoint(team){
-  if (scoreA != 25 && scoreB !=25) {
-    if (team === 'A'){
-      scoreA ++;
-      document.getElementById("scoreA").textContent = scoreA;
-    }
-     else if (team === 'B'){
-      scoreB ++;
-      document.getElementById("scoreB").textContent = scoreB;
-    }
+  
+  if (team === 'A'){
+    scoreA ++;
+    document.getElementById("scoreA").textContent = scoreA;
   }
-  else if (scoreA === 25 && (scoreA - scoreB)>1){
-    alert ("Ganador team A")
+   else if (team === 'B'){
+    scoreB ++;
+    document.getElementById("scoreB").textContent = scoreB;
   }
-  else if (scoreB === 25 && (scoreB - scoreA)>1){
-    alert ("Ganador team B")
+  if (scoreA >=25 && scoreA - scoreB >1){
+    alert("Ganador team A!")
   }
+    if (scoreB >=25 && scoreB - scoreA >1)
+    alert("Ganador team B!")
 }
 
 function subtractPoint(team){
-  if (team === "A" && scoreA > 0){
+  if (team === "A" && scoreA > 1){
     scoreA --;
     document.getElementById("scoreA").textContent= scoreA
   }
-  else if (team === "B" && scoreB > 0){
+  else if (team === "B" && scoreB > 1){
     scoreB --;
     document.getElementById("scoreB").textContent= scoreB
   }  
