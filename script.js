@@ -12,10 +12,10 @@ function addPoint(team){
       document.getElementById("scoreB").textContent = scoreB;
     }
   }
-  else if (scoreA === 25){
+  else if (scoreA === 25 && (scoreA - scoreB)>1){
     alert ("Ganador team A")
   }
-  else if (scoreB === 25){
+  else if (scoreB === 25 && (scoreB - scoreA)>1){
     alert ("Ganador team B")
   }
 }
