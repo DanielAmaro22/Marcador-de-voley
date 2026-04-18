@@ -11,19 +11,19 @@ function addPoint(team){
     scoreB ++;
     document.getElementById("scoreB").textContent = scoreB;
   }
-  if (scoreA >=25 && scoreA - scoreB >0){
+  if (scoreA >=25 && scoreA - scoreB >1){
     alert("Ganador team A!")
   }
-    if (scoreB >=25 && scoreB - scoreA >0)
+    if (scoreB >=25 && scoreB - scoreA >1)
     alert("Ganador team B!")
 }
 
 function subtractPoint(team){
-  if (team === "A" && scoreA > 1){
+  if (team === "A" && scoreA > 0){
     scoreA --;
     document.getElementById("scoreA").textContent= scoreA
   }
-  else if (team === "B" && scoreB > 1){
+  else if (team === "B" && scoreB > 0){
     scoreB --;
     document.getElementById("scoreB").textContent= scoreB
   }  
