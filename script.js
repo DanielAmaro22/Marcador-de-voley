@@ -26,6 +26,7 @@ function addPoint(team){
     document.getElementById("setB").textContent= setB;
     resetScore();
     return;
+  }
 }
 function subtractPoint(team){
   if (team === "A" && scoreA > 0){
@@ -43,4 +44,10 @@ function resetScore(){
   scoreB = 0;
   document.getElementById("scoreA").textContent= scoreA;
   document.getElementById("scoreB").textContent= scoreB;
+}
+function resetSet(){
+  setA = 0;
+  setB = 0;
+  document.getElementById("setA").textContent= setA;
+  document.getElementById("setB").textContent= setB;
 }
