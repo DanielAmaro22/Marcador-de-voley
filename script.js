@@ -7,36 +7,59 @@ function addPoint(team){
   
   if (team === 'A'){
     scoreA ++;
-    document.getElementById("scoreA").textContent = scoreA;
   }
   else if (team === 'B'){
     scoreB ++;
-    document.getElementById("scoreB").textContent = scoreB;
   }
-  if (scoreA >=25 && scoreA - scoreB >=2){
+  actualizarMarcador();
+  comprobarGanador();
+}
+  
+function comprobarGanador(){
+  let puntosMax = (setA === 2 && setB === 2) ? 15 : 25;
+
+  if (scoreA >=puntosMax && scoreA - scoreB >=2){
     setA++;
     alert("Set para team A!");
-    document.getElementById("setA").textContent= setA;
     resetScore();
+    if (setA === 3){
+      alert("¡Team A gana el partido!");
+      resetSet();
+    }
+    actualizarMarcador();
     return;
   }
-    if (scoreB >=25 && scoreB - scoreA >=2){
+  
+  if (scoreB >=puntosMax && scoreB - scoreA >=2){
     setB++;
     alert("Set para team B!");
-    document.getElementById("setB").textContent= setB;
     resetScore();
+    if (setB === 3){
+      alert("¡Team B gana el partido!");
+      resetSet();
+    }
+    actualizarMarcador();
     return;
   }
 }
+
 function subtractPoint(team){
+  
   if (team === "A" && scoreA > 0){
     scoreA --;
-    document.getElementById("scoreA").textContent= scoreA
   }
   else if (team === "B" && scoreB > 0){
     scoreB --;
-    document.getElementById("scoreB").textContent= scoreB
-  }  
+  } 
+  actualizarMarcador();
+}
+
+function actualizarMarcador(){
+  
+  document.getElementById("scoreA").textContent = scoreA;
+  document.getElementById("scoreB").textContent = scoreB;
+  document.getElementById("setA").textContent = setA;
+  document.getElementById("setB").textContent = setB;
 }
 
 function resetScore(){
@@ -45,6 +68,7 @@ function resetScore(){
   document.getElementById("scoreA").textContent= scoreA;
   document.getElementById("scoreB").textContent= scoreB;
 }
+
 function resetSet(){
   setA = 0;
   setB = 0;
