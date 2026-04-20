@@ -16,18 +16,22 @@ function addPoint(team){
 }
   
 function comprobarGanador(){
+  /*let puntosMax = si van 2-2 en set el ultimo sera de 15 si no se juega a 25*/
   let puntosMax = (setA === 2 && setB === 2) ? 15 : 25;
 
+  /*para ganar el set debe tener por lo menos los puntosMax y una diferencia de 2*/
   if (scoreA >=puntosMax && scoreA - scoreB >=2){
-    setA++;
-    alert("Set para team A!");
-    resetScore();
+    setA++;/*1.suma el set al ganador*/
+    alert("Set para team A!");/*2.muestra un mensage del ganador*/
+    resetScore();/*3.resetea los puntos*/
+    
+    /*si llega a 3 set gana el partido*/
     if (setA === 3){
       alert("¡Team A gana el partido!");
       resetSet();
     }
-    actualizarMarcador();
-    return;
+    actualizarMarcador();/**/
+    return;/*si el team A gana el set deja de ejecutarse para que no siga evaluando el codigo de abajo*/
   }
   
   if (scoreB >=puntosMax && scoreB - scoreA >=2){
@@ -55,7 +59,7 @@ function subtractPoint(team){
 }
 
 function actualizarMarcador(){
-  
+  /*actualiza los puntos actuales de los sets y puntajes*/
   document.getElementById("scoreA").textContent = scoreA;
   document.getElementById("scoreB").textContent = scoreB;
   document.getElementById("setA").textContent = setA;
