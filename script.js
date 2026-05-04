@@ -22,13 +22,13 @@ function comprobarGanador(){
   /*para ganar el set debe tener por lo menos los puntosMax y una diferencia de 2*/
   if (scoreA >=puntosMax && scoreA - scoreB >=2){
     setA++;/*1.suma el set al ganador*/
-    alert("Set para team A!");/*2.muestra un mensage del ganador*/
+    // alert("Set para team A!");/*2.muestra un mensage del ganador*/
     resetScore();/*3.resetea los puntos*/
     
     /*si llega a 3 set gana el partido*/
     if (setA === 3){
-      alert("¡Team A gana el partido!");
-      resetSet();
+      // alert("¡Team A gana el partido!");
+      // resetSet();
     }
     actualizarMarcador();/**/
     return;/*si el team A gana el set deja de ejecutarse para que no siga evaluando el codigo de abajo*/
@@ -39,8 +39,8 @@ function comprobarGanador(){
     alert("Set para team B!");
     resetScore();
     if (setB === 3){
-      alert("¡Team B gana el partido!");
-      resetSet();
+      // alert("¡Team B gana el partido!");
+      // resetSet();
     }
     actualizarMarcador();
     return;
@@ -69,13 +69,15 @@ function actualizarMarcador(){
 function resetScore(){
   scoreA = 0;
   scoreB = 0;
-  document.getElementById("scoreA").textContent= scoreA;
-  document.getElementById("scoreB").textContent= scoreB;
+  actualizarMarcador();
 }
 
-function resetSet(){
+function resetMatch(){
   setA = 0;
   setB = 0;
-  document.getElementById("setA").textContent= setA;
-  document.getElementById("setB").textContent= setB;
+  scoreA = 0;
+  scoreB = 0;
+  actualizarMarcador();
 }
+
+document.getElementById("resetMatch").addEventListener("click", resetMatch);
