@@ -12,10 +12,13 @@
       <div class="scoreboard">
         <div class="set"> 
           <h2>SETS:</h2>
-          <h3>Team A <span id="setA">0</span></h3>  <h3>Team B <span id="setB">0</span></h3>
+          <h3> <span id= "teama">Team A</span> <span id="setA">0</span></h3>
+          <h3> <span id= "teamb">Team B</span> <span id="setB">0</span></h3>
         </div>
         <div class="team">
-          <h2>Team A</h2>
+          <h2>
+            <input class="name" type="text" id="nameA" value="Team A">
+          </h2>
           <div class="score" id="scoreA">0 </div>
           <div class="buttons">
             <button class="buttonsPoint" onclick="addPoint('A')" title="Sumar 1 punto">+1</button>
@@ -23,7 +26,9 @@
           </div>
         </div>
         <div class="team">
-          <h2>Team B</h2>
+          <h2>
+            <input class="name" type="text" id="nameB" value="Team B">
+          </h2>
           <div class="score" id="scoreB">0 </div>
           <div class="buttons">
             <button class="buttonsPoint" onclick="addPoint('B')" title="Sumar 1 punto">+1</button>
