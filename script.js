@@ -47,7 +47,11 @@ function comprobarGanador(){
 
 function showWinner(equipo) {
     const msg = document.getElementById("ganador");
-    const nombre = equipo === "teamA"? "A" : "B";
+    
+    const nameA = document.getElementById("nameA").value;
+    const nameB= document.getElementById("nameB").value;
+    
+    const nombre = equipo === "teamA"? nameA : nameB;
     msg.textContent = ` Felicitaciones equipo ${nombre}! ⭐`;
     // condicion en una linea: si el parametro pasado(equipo) es igual al valor comparado 
     // ejecuta el primer valor(letra color rojo) sino ejecuta lo segundo(letra color azul)
@@ -95,3 +99,11 @@ function resetMatch(){
 }
 
 document.getElementById("resetMatch").addEventListener("click", resetMatch);
+
+function actualizarNombre(){
+  document.getElementById("teama").textContent = document.getElementById("nameA").value || "Equipo A"
+  document.getElementById("teamb").textContent = document.getElementById("nameB").value || "Equipo B"
+}
+
+document.getElementById("nameA").addEventListener("input", actualizarNombre)
+document.getElementById("nameB").addEventListener("input", actualizarNombre)
