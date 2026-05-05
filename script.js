@@ -1,7 +1,7 @@
-let scoreA = 0
-let scoreB = 0
-let setA = 0
-let setB = 0
+let scoreA = 0;
+let scoreB = 0;
+let setA = 0;
+let setB = 0;
 
 function addPoint(team){
   
@@ -22,13 +22,12 @@ function comprobarGanador(){
   /*para ganar el set debe tener por lo menos los puntosMax y una diferencia de 2*/
   if (scoreA >=puntosMax && scoreA - scoreB >=2){
     setA++;/*1.suma el set al ganador*/
-    // alert("Set para team A!");/*2.muestra un mensage del ganador*/
+    
     resetScore();/*3.resetea los puntos*/
     
     /*si llega a 3 set gana el partido*/
     if (setA === 3){
-      // alert("¡Team A gana el partido!");
-      // resetSet();
+      showWinner("teamA");
     }
     actualizarMarcador();/**/
     return;/*si el team A gana el set deja de ejecutarse para que no siga evaluando el codigo de abajo*/
@@ -36,16 +35,26 @@ function comprobarGanador(){
   
   if (scoreB >=puntosMax && scoreB - scoreA >=2){
     setB++;
-    alert("Set para team B!");
+    
     resetScore();
     if (setB === 3){
-      // alert("¡Team B gana el partido!");
-      // resetSet();
+      showWinner("teamB");
     }
     actualizarMarcador();
     return;
   }
 }
+
+function showWinner(equipo) {
+    const msg = document.getElementById("ganador");
+    const nombre = equipo === "teamA"? "A" : "B";
+    msg.textContent = ` Felicitaciones equipo ${nombre}! ⭐`;
+    // condicion en una linea: si el parametro pasado(equipo) es igual al valor comparado 
+    // ejecuta el primer valor(letra color rojo) sino ejecuta lo segundo(letra color azul)
+    msg.style.color = equipo === 'teamA' ? '#e05c5c' : '#5c8ee0';
+    const botones = document.querySelectorAll(".buttonsPoint");
+    botones.forEach(btn => { btn.disabled = true });
+  }
 
 function subtractPoint(team){
   
@@ -77,6 +86,11 @@ function resetMatch(){
   setB = 0;
   scoreA = 0;
   scoreB = 0;
+  const msg = document.getElementById("ganador");
+  msg.textContent = ""
+  const botones = document.querySelectorAll(".buttonsPoint");
+  botones.forEach(btn => { btn.disabled = false })
+
   actualizarMarcador();
 }
 
